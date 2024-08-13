@@ -1,12 +1,19 @@
-#header {
-    display: flex;
-    border: 2px solid, black;
-    color: black;
+.body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .header-container {
     display: flex;
     justify-content: space-between;
+    text-align: center;
+}
+
+#header {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
     text-align: center;
 }
 
@@ -30,7 +37,7 @@ div > div {
 }
 
 #melk {
-    background: image-set("melk.jpg");
+    background: url(melk.jpg);
     background-size: cover;
     height: 200px;
     width: 200px;
@@ -101,17 +108,25 @@ div > div {
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    position: right;
+    justify-content: right;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
+    right: 0;
     background-color: #f1f1f1;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
 }
 
 .dropButton:hover {

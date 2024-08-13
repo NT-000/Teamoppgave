@@ -1,11 +1,37 @@
-const cart = document.getElementById('myDropdown')
-const varer = document.querySelectorAll('div[id]')
 
 
 
 
+function addToCart (item){
+        if (!selectedItems.includes(item)) {
+            selectedItems.push(item);
+            updateDropdown();
+        }
+}
 
 
+
+function updateDropdown() {
+    dropdownContent.innerHTML = '';
+    selectedItems.forEach(function(item){
+        var link = document.createElement('a');
+        link.href = "#";
+        link.textContent = item;
+        dropdownContent.appendChild(link); 
+    }); 
+}
+
+window.onclick = function(event) {
+    if (!event.target.matches('.dropButton')) {
+        var dropdowns = document.getElementsByClassName('dropdown-content');
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
 
 
 function toggleDropdown() {
@@ -14,16 +40,4 @@ function toggleDropdown() {
 
 function selectItem(item) {
     document.querySelector(".dropButton").textContent = item;
-}
-
-window.onclick = function(event) {
-    if (!event.target.matches('.dropButton')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        for (var i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-            }
-        }
-    }
 }
