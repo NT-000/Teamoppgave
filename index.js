@@ -1,24 +1,59 @@
-
-
-
+var selectedItems = [];
 
 function addToCart (item){
-        if (!selectedItems.includes(item)) {
-            selectedItems.push(item);
-            updateDropdown();
-        }
+    const itemName = item.textContent.trim();
+    const itemImg = item.getAttribute('data-img');
+    
+    const dropdownContent = document.getElementById("myDropdown");
+    
+   
+    if (!document.getElementById(item.id + "-dropdown")) {
+        const newItem = document.createElement("div");
+        newItem.id = item.id + "-dropdown";
+        newItem.classList.add("dropdown-item");
+
+       
+        const imgElement = document.createElement("img");
+        imgElement.src = itemImg;
+        imgElement.alt = itemName;
+        imgElement.style.width = "30px";
+        imgElement.style.height = "30px";
+        imgElement.style.marginRight = "10px";
+
+       
+        const textElement = document.createTextNode(itemName);
+
+      
+        newItem.appendChild(imgElement);
+        newItem.appendChild(textElement);
+
+        
+        dropdownContent.appendChild(newItem);
+    }
 }
 
 
-
 function updateDropdown() {
-    dropdownContent.innerHTML = '';
-    selectedItems.forEach(function(item){
-        var link = document.createElement('a');
-        link.href = "#";
-        link.textContent = item;
-        dropdownContent.appendChild(link); 
-    }); 
+    const dropdownContent = document.getElementById("myDropdown");
+    dropdownContent.innerHTML = ''; // Clear previous items
+
+    selectedItems.forEach(function(item) {
+        const newItem = document.createElement("div");
+        newItem.id = item.id + "-dropdown";
+        newItem.classList.add("dropdown-item");
+
+        const imgElement = document.createElement("img");
+        imgElement.src = item.img;
+        imgElement.alt = item.name;
+        imgElement.style.width = "30px";
+        imgElement.style.height = "30px";
+        imgElement.style.marginRight = "10px";
+
+        const textElement = document.createTextNode(item.name);
+        newItem.appendChild(imgElement);
+        newItem.appendChild(textElement);
+        dropdownContent.appendChild(newItem);
+    });
 }
 
 window.onclick = function(event) {
