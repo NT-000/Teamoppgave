@@ -5,8 +5,7 @@ function addToCart (item){
     const itemImg = item.getAttribute('data-img');
     
     const dropdownContent = document.getElementById("myDropdown");
-    
-   
+
     if (!document.getElementById(item.id + "-dropdown")) {
         const newItem = document.createElement("div");
         newItem.id = item.id + "-dropdown";
@@ -35,7 +34,7 @@ function addToCart (item){
 
 function updateDropdown() {
     const dropdownContent = document.getElementById("myDropdown");
-    dropdownContent.innerHTML = ''; // Clear previous items
+    dropdownContent.innerHTML = '';
 
     selectedItems.forEach(function(item) {
         const newItem = document.createElement("div");
@@ -75,4 +74,10 @@ function toggleDropdown() {
 
 function selectItem(item) {
     document.querySelector(".dropButton").textContent = item;
+}
+
+function payUp() {
+    alert("Takk for kjøpet, vi kommer ikke til å bruke kjøpsinformasjonen din! Joda kanskje");
+    selectedItems = [];
+    updateDropdown();
 }

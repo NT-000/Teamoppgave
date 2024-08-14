@@ -10,12 +10,30 @@
 
     <header id="header">
         <div id = "header-container">
-            <h1>Søppelvarer AS</h1>
+            <h1>Søppelvarer Incorporated AS</h1>
+            <img src="trashman2.png" class="logo">
         </div>  
 
     </header>
 
-    <div class="grid">    
+    <div class="grid">
+        
+                <div class="textBox">
+            <div id="textBox1">
+                <h2>
+                    <p>Vi i Søppelvarer AS ønsker dere hjertelig velkommen til denne mindre funksjonelle nettside!</p>
+                    <p>Her har vi verdens minste utvalg av varer for dere å trykke på for morroskyld, uten noe særlig funksjon</p>
+                    <p>Er du VELDIG modig så legger du gjerne igjen kontoinformasjonen din her</p>
+                    <p>Vi oppdaterer selvfølgelig nettsiden etterhvert hvor de modige kan få legge igjen informasjonen!</p>
+                </h2>
+            </div>
+        </div>
+        <div class="dropdown">
+        <button class="dropButton" onclick="toggleDropdown();">Trykk her for å se handlekurv</button>
+            <div id="myDropdown" class="dropdown-content">
+                <button class="betal" id="betalKnapp" onclick="payUp()";>Trykk for å betale</button>
+            </div>
+        </div>
         <div class="varer">
             <div id="melk" onclick="addToCart(this)" data-img="melk.jpg">Melk</div>
             <div id="banan" onclick="addToCart(this)" data-img="banan.jpg">Banan</div>
@@ -37,11 +55,18 @@
         </div>
         <div class="dropdown">
         <button class="dropButton" onclick="toggleDropdown();">Trykk her for å se handlekurv</button>
-        <div id="myDropdown" class="dropdown-content"></div>
+            <div id="myDropdown" class="dropdown-content">
+                <button class="betal" id="betalKnapp" onclick="payUp()";>Trykk for å betale</button>
+            </div>
         </div>
 
     </div>
-
+<footer>
+    <p>Frekkaste sjappa sør for Lindesnes ™</p>
+    <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0">
+        <button id="support">Kontakt oss</button>
+    </a>
+</footer>
 
 
 
