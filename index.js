@@ -58,8 +58,8 @@ function updateDropdown() {
 window.onclick = function(event) {
     if (!event.target.matches('.dropButton')) {
         var dropdowns = document.getElementsByClassName('dropdown-content');
-        for (var i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
+        for (var window = 0; window < dropdowns.length; window++) {
+            var openDropdown = dropdowns[window];
             if (openDropdown.classList.contains('show')) {
             openDropdown.classList.remove('show');
             }
