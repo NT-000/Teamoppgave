@@ -48,22 +48,33 @@ function updateDropdown() {
         imgElement.style.height = "30px";
         imgElement.style.marginRight = "10px";
 
-        const textElement = document.createTextNode(item.name);
-        newItem.appendChild(imgElement);
-        newItem.appendChild(textElement);
+        // En alternativ men mer "avansert" måte å løse oppdatering av innerHTML.
+        // For å følge oppgavens retningslinjer oppdateres denne delen av funksjonen med .innerHTML attribute istedenfor.
+        // const textElement = document.createTextNode(item.name);
+        // newItem.appendChild(imgElement);
+        // newItem.appendChild(textElement);
+        
+        newItem.innerHTML = imgElement.outerHTML + item.name;
         dropdownContent.appendChild(newItem);
     });
 }
 
 window.onclick = function(event) {
     if (!event.target.matches('.dropButton')) {
-        var dropdowns = document.getElementsByClassName('dropdown-content');
-        for (var window = 0; window < dropdowns.length; window++) {
-            var openDropdown = dropdowns[window];
+        const dropdowns = document.getElementsByClassName('dropdown-content');
+        
+        function closeDropdown(index) {
+            if (index >= dropdowns.length) return;
+            
+            const openDropdown = dropdowns[index];
             if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
+                openDropdown.classList.remove('show');
             }
+            
+            return closeDropdown(index + 1);
         }
+        
+        return closeDropdown(0);
     }
 }
 
